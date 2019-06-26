@@ -24,7 +24,7 @@ constructor() {
   this.post2.content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at congue ante. Curabitur bibendum, ligula non rhoncus molestie"
  
   this.post3 = new Post();
-  this.post3.title = "titre "
+  this.post3.title = "titre 3"
   this.post2.content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at congue ante. Curabitur bibendum, ligula non rhoncus molestie"
  
   this.posts.push(this.post1,this.post2,this.post3);
