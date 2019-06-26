@@ -1,1 +1,15 @@
-<p>post-list-item works!</p>
+
+<ul class="list-group text-left" >
+    <li [ngClass]="{
+        'list-group-item' : true,
+        'list-group-item-success' : like >= 1,
+        'list-group-item-danger' : like < 0 }">
+        <div class="row">
+            <h3>{{ title }}</h3>  <span class="text-right font-weight-light font-italic" style="font-style: italic;"> {{ created_at | date: "dd-MM-yyyy" }}</span>
+        </div>
+        <h4>{{ content }}</h4>
+        <h5> like : {{ like }}</h5>
+        <button (click)="vote('up')" class="btn btn-success">Like</button>
+        <button (click)="vote('down')" class="btn btn-danger">Deslike</button>
+    </li>
+</ul>
