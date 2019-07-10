@@ -9,9 +9,7 @@
         </div>
         <h4>{{ content }}</h4>
         <h5> like : {{ like }}</h5>
-        <button (click)="onVote('up')" class="btn btn-success">Like</button>
-        <button (click)="onVote('down')" class="btn btn-danger">Deslike</button>
-        <button class="btn  pull-right btn-danger btn-xs" (click)="onDeletePost()" > Supprimer </button>
-        
+        <button (click)="vote('up')" class="btn btn-success">Like</button>
+        <button (click)="vote('down')" class="btn btn-danger">Deslike</button>
     </li>
 </ul>
