@@ -39,17 +39,10 @@ export class PostService implements OnInit, OnDestroy {
         this.emitePostSubject;
     }
 
-    deletePost(post: Post) {
+    deletePost(post) {
+       
+        this.posts.splice(post.id, 1);
 
-        const deletedPost = this.posts.findIndex(
-            (postEl) => {
-                if(postEl === post) {
-                  return true;
-                }
-              }
-        );
-        
-        this.posts.splice(deletedPost, 1);
         this.savePost();
         this.emitePostSubject()
     }
@@ -63,10 +56,6 @@ export class PostService implements OnInit, OnDestroy {
         this.savePost();
         this.emitePostSubject();
     }
-
-    emitePostSubject() {
-        this.postsSubject.next(this.posts);
-     }
 
      ngOnDestroy(): void {
         this.postsSubject.unsubscribe();

@@ -23,8 +23,8 @@ export class PostItemComponent {
      this.postService.like(this);
   }
 
-  onDeletePost(post: Post) {
-    this.postService.deletePost(post);
+  onDeletePost() {
+    this.postService.deletePost(this);
   }
 
 }
