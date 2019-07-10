@@ -8,13 +8,6 @@ import { del } from 'selenium-webdriver/http';
 @Injectable()
 export class PostService implements OnInit, OnDestroy {
 
-    ngOnDestroy(): void {
-        this.postsSubject.unsubscribe();
-    }
-    ngOnInit(): void {
-       this.getPosts();
-    }
-
     posts= [];
     postsSubject = new Subject<Post[]>();
 
@@ -70,6 +63,13 @@ export class PostService implements OnInit, OnDestroy {
     emitePostSubject() {
         this.postsSubject.next(this.posts);
      }
+
+     ngOnDestroy(): void {
+        this.postsSubject.unsubscribe();
+    }
+    ngOnInit(): void {
+       this.getPosts();
+    }
     
 
 }
