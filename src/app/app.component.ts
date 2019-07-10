@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Post } from './post';
+import { Post } from './models/post';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -15,19 +16,17 @@ public post3: Post;
 public posts: Array<Post> = [];
 
 constructor() {
-  this.post1 = new Post();
-  this.post1.title = "titre 1"
-  this.post1.content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at congue ante. Curabitur bibendum, ligula non rhoncus molestie"
-  
-  this.post2 = new Post();
-  this.post2.title = "titre 2"
-  this.post2.content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at congue ante. Curabitur bibendum, ligula non rhoncus molestie"
- 
-  this.post3 = new Post();
-  this.post3.title = "titre 3"
-  this.post2.content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at congue ante. Curabitur bibendum, ligula non rhoncus molestie"
- 
-  this.posts.push(this.post1,this.post2,this.post3);
+  var firebaseConfig = {
+    apiKey: "AIzaSyDpSWHm7P0m3TmVwav1HUS9eLoRV118Tcs",
+    authDomain: "angular-bibliotheque-87bfc.firebaseapp.com",
+    databaseURL: "https://angular-bibliotheque-87bfc.firebaseio.com",
+    projectId: "angular-bibliotheque-87bfc",
+    storageBucket: "angular-bibliotheque-87bfc.appspot.com",
+    messagingSenderId: "883259554274",
+    appId: "1:883259554274:web:ba75167870c67dc1"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 }
   
 
