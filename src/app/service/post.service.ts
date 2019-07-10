@@ -8,13 +8,6 @@ import { del } from 'selenium-webdriver/http';
 @Injectable()
 export class PostService implements OnInit, OnDestroy {
 
-    ngOnDestroy(): void {
-        throw new Error("Method not implemented.");
-    }
-    ngOnInit(): void {
-       this.getPosts();
-    }
-
     posts= [];
     postsSubject = new Subject<Post[]>();
 
@@ -69,6 +62,17 @@ export class PostService implements OnInit, OnDestroy {
         this.posts[post.id].like = post.like;
         this.savePost();
         this.emitePostSubject();
+    }
+
+    emitePostSubject() {
+        this.postsSubject.next(this.posts);
+     }
+
+     ngOnDestroy(): void {
+        this.postsSubject.unsubscribe();
+    }
+    ngOnInit(): void {
+       this.getPosts();
     }
     
 
